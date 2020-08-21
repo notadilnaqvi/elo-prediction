@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Elo Calculation</title>
+        <title>Elo Prediction</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -14,9 +14,9 @@
         <script src="app.js"></script>
     </head>
     <body class="text-center container-md bg-light py-4 px-5" style="max-width: 600px;">
-        <h3 class="font-weight-light">Elo Calculator</h3>
+        <h3 class="font-weight-light">Elo Prediction</h3>
         <p class="border rounded p-4 my-4 text-justify font-weight-light text-secondary">
-            Elo is a rating system used to calcuate the skill level of players in Chess. Enter your Elo along with your opponent's to calculate your updated Elo based on the outcome of the game.
+            Elo is a rating system used to calcuate the skill level of players in Chess. Enter your Elo along with your opponent's to predict your updated Elo based on the outcome of the game.
         </p>
         <form>
             <div class="input-group input-group-sm mb-3 mx-auto" style="width: 250px;" >
@@ -43,9 +43,9 @@
                 </label>
             </div> <br> <br>
 
-            <button class="btn btn-info mb-4" type="button">Calculate</button>
+            <button class="btn btn-info mb-4" type="button">Predict</button>
         </form> 
         <p id="eloChange" class="alert alert-light">Updated Elo will show here</p>
-        <p class="font-weight-light text-muted">A neural network model works behind the scenes to predict the updated Elo. Model built and trained using TensorFlow. See source code on <a href="https://www.github.com/notadilnaqvi/elo-calculation" target=“_blank” class="link text-decoration-none">Github</a></p>
+        <p class="font-weight-light text-muted">A neural network works behind the scenes to predict the updated Elo. The NN model was built and trained using TensorFlow. See source code on <a href="https://www.github.com/notadilnaqvi/elo-prediction" target=“_blank” class="link text-decoration-none">Github</a></p>
     </body>
 </html>
