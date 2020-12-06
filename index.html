@@ -5,18 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Elo Prediction</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700&display=swap" rel="stylesheet"/>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700&display=swap" rel="stylesheet"/>
-        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+        <!-- Removing the line below solves the (given) error. I have no idea why. -->
+        <!-- ERROR: DevTools failed to load SourceMap: Could not load content for https://cdn.jsdelivr.net/npm/@tensorflow/tf-converter.min.js.map: HTTP error: status code 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script> -->
         <script src="app.js"></script>
     </head>
     <body class="text-center container-md bg-light py-4 px-5" style="max-width: 600px;">
         <h3 class="font-weight-light">Elo Prediction</h3>
         <p class="border rounded p-4 my-4 text-justify font-weight-light text-secondary">
-            Elo is a rating system used to calcuate the skill level of players in Chess. Enter your Elo along with your opponent's to predict your updated Elo based on the outcome of the game.
+            Elo is a rating system used to calcuate the skill level of players in chess. Enter both players' Elo ratings and the game result to determine your updated Elo after the game.
         </p>
         <form>
             <div class="input-group input-group-sm mb-3 mx-auto" style="width: 250px;" >
@@ -44,8 +48,12 @@
             </div> <br> <br>
 
             <button class="btn btn-info mb-4" type="button">Predict</button>
-        </form> 
-        <p id="eloChange" class="alert alert-light">Updated Elo will show here</p>
-        <p class="font-weight-light text-muted">A neural network works behind the scenes to predict the updated Elo. The NN model was built and trained using TensorFlow. See source code on <a href="https://www.github.com/notadilnaqvi/elo-prediction" target=“_blank” class="link text-decoration-none">Github</a></p>
+        </form>
+        <p id="eloChange" class="alert alert-light">Predicted Elo will show here</p>
+        <p  id="actualEloChange" class="alert alert-light">Ground truth will show here</p>
+        <p class="border rounded p-4 my-4 text-justify font-weight-light text-secondary">The DNN works best for values between Elo range 2000-2700 with approximate 100 Elo point difference. <br><br>A deep neural network (DNN) works behind the scenes to predict the updated Elo. The equation that this DNN approximates i.e. the actual Elo formula used by the International Chess Federation (FIDE) is:<br>\[\Delta Elo = k * \{result - {1 \over {1+10^{oppElo - yourElo \over 400}}}\}.\] </p>
+        <p class="font-weight-light text-muted"></p>
+        <p class="font-weight-light text-muted"></p>
+        <p><a href="http://github.com/notadilnaqvi/elo-prediction" target="_blank" rel="noopener noreferrer">See source code</a></p>
     </body>
 </html>
